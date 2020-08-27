@@ -53,7 +53,8 @@ public class List implements ListInterface{
 
     @Override
     public Object getTail() {
-        return null;
+        Object temporalNode=tail.getObject();
+        return temporalNode;
     }
 
     @Override
