@@ -1,18 +1,46 @@
 package edu.upb.ds.Airplane;
 
+import java.sql.Date;
+
 public class Avion {
     private int id;
-    private String puesto;
-    private String categoria;
-    private int valor;
+    private int puesto;
+    private String origen;
+    private String destino;
+    private Date hora_salida;
 
     public Avion(){}
 
-    public Avion(int id, String puesto, String categoria, int valor) {
+    public Avion(int id, int puesto, String origen, String destino, Date hora_salida) {
         this.id = id;
         this.puesto = puesto;
-        this.categoria = categoria;
-        this.valor = valor;
+        this.origen = origen;
+        this.destino = destino;
+        this.hora_salida = hora_salida;
+    }
+
+    public String getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(String origen) {
+        this.origen = origen;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }
+
+    public Date getHora_salida() {
+        return hora_salida;
+    }
+
+    public void setHora_salida(Date hora_salida) {
+        this.hora_salida = hora_salida;
     }
 
     public int getId() {
@@ -23,28 +51,12 @@ public class Avion {
         this.id = id;
     }
 
-    public String getPuesto() {
+    public int getPuesto() {
         return puesto;
     }
 
-    public void setPuesto(String puesto) {
+    public void setPuesto(int puesto) {
         this.puesto = puesto;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public int getValor() {
-        return valor;
-    }
-
-    public void setValor(int valor) {
-        this.valor = valor;
     }
 
     @Override
@@ -52,8 +64,9 @@ public class Avion {
         return "Avion{" +
                 "id=" + id +
                 ", puesto='" + puesto + '\'' +
-                ", categoria='" + categoria + '\'' +
-                ", valor=" + valor +
+                ", origen='" + origen + '\'' +
+                ", destino='" + destino + '\'' +
+                ", hora_salida=" + hora_salida +
                 '}';
     }
 }
