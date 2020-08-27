@@ -85,6 +85,14 @@ public class List implements ListInterface{
     @Override
     public void add(Object object)
     {
+        if(!isEmpty()){
+            tail.next=new ListNode(object);
+            tail=tail.next;
+        }else {
+            head=tail=new ListNode(object);
+        }
+        size++;
+        /*
         if(head==null){
             head = new ListNode(object);
             tail = head;
@@ -97,6 +105,8 @@ public class List implements ListInterface{
             head=newNode;
         }
         size ++;
+
+         */
     }
 
     @Override

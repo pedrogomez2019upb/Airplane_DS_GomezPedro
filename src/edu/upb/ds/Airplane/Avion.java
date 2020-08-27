@@ -1,6 +1,6 @@
 package edu.upb.ds.Airplane;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Avion {
     private int id;

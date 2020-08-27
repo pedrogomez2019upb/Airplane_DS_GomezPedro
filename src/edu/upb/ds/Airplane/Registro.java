@@ -1,10 +1,11 @@
 package edu.upb.ds.Airplane;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Registro {
     private int id_registro;
-    private Date fecha_compra;
+    private LocalDate fecha_compra;
     private String nombre_pasajero;
     private String apellido_pasajero;
     private String tipo_identificacion;
@@ -12,10 +13,11 @@ public class Registro {
     private String direccion;
     private int celular;
     private String asiento;
+    private Object avion;
 
     public Registro(){}
 
-    public Registro(int id_registro, Date fecha_compra, String nombre_pasajero, String apellido_pasajero, String tipo_identificacion, int identificacion, String direccion, int celular,String asiento) {
+    public Registro(int id_registro, LocalDate fecha_compra, String nombre_pasajero, String apellido_pasajero, String tipo_identificacion, int identificacion, String direccion, int celular, String asiento, Object avion) {
         this.id_registro = id_registro;
         this.fecha_compra = fecha_compra;
         this.nombre_pasajero = nombre_pasajero;
@@ -24,7 +26,16 @@ public class Registro {
         this.identificacion = identificacion;
         this.direccion = direccion;
         this.celular = celular;
-        this.asiento=asiento;
+        this.asiento = asiento;
+        this.avion = avion;
+    }
+
+    public Object getAvion() {
+        return avion;
+    }
+
+    public void setAvion(Object avion) {
+        this.avion = avion;
     }
 
     public int getId_registro() {
@@ -35,11 +46,11 @@ public class Registro {
         this.id_registro = id_registro;
     }
 
-    public Date getFecha_compra() {
+    public LocalDate getFecha_compra() {
         return fecha_compra;
     }
 
-    public void setFecha_compra(Date fecha_compra) {
+    public void setFecha_compra(LocalDate fecha_compra) {
         this.fecha_compra = fecha_compra;
     }
 
