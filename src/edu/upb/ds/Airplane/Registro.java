@@ -112,7 +112,9 @@ public class Registro {
 
     @Override
     public String toString() {
-        return "Registro{" +
+
+        return
+                "Registro{" +
                 "id_registro=" + id_registro +
                 ", fecha_compra=" + fecha_compra +
                 ", nombre_pasajero='" + nombre_pasajero + '\'' +
@@ -123,5 +125,6 @@ public class Registro {
                 ", celular=" + celular +
                 ", asiento='" + asiento + '\'' +
                 '}';
+
     }
 }

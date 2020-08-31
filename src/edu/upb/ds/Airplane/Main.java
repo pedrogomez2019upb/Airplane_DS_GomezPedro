@@ -22,7 +22,19 @@ public class Main {
         System.out.println(list1.getHead());
         Object b = list1.getHead();
         String origenTemporal =b.toString();
-
+        Object avionTemporal = list1.getHead();
+        System.out.println("##########");
+        System.out.println(avionTemporal.toString());
+        Avion avionNuevo=Avion.class.cast(avionTemporal);
+        avionNuevo.setPuesto(789);
+        list1.add(avionNuevo);
+        System.out.println("##########");
+        System.out.println("##########");
+        for(ListNode node=list1.head;node !=null;node=node.next)
+        {
+            System.out.println(node.toString());
+        }
+        System.out.println("##########");
         /*
         for(int i=0;i<10;i++){
             list1.add(i);
