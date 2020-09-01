@@ -11,7 +11,7 @@ public class Main {
         List list1=new List();
         Avion a=new Avion();
         a.setId(123456789);
-        a.setPuesto(144);
+        a.setPuesto(139);
         a.setOrigen("Bucaramanga");
         a.setDestino("Cúcuta");
         ZoneId defaultZoneId = ZoneId.systemDefault();
@@ -26,7 +26,7 @@ public class Main {
         System.out.println("##########");
         System.out.println(avionTemporal.toString());
         Avion avionNuevo=Avion.class.cast(avionTemporal);
-        avionNuevo.setPuesto(789);
+        avionNuevo.setPuesto(139);
         list1.add(avionNuevo);
         System.out.println("##########");
         System.out.println("##########");

@@ -1,23 +1,26 @@
 package edu.upb.ds.Airplane;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Registro {
     private int id_registro;
-    private LocalDate fecha_compra;
+    private LocalDateTime fecha_compra;
     private String nombre_pasajero;
     private String apellido_pasajero;
     private String tipo_identificacion;
-    private int identificacion;
+    private String identificacion;
     private String direccion;
     private int celular;
-    private String asiento;
+    private int asiento;
+    private String categoria;
+    private int precio;
     private Object avion;
 
     public Registro(){}
 
-    public Registro(int id_registro, LocalDate fecha_compra, String nombre_pasajero, String apellido_pasajero, String tipo_identificacion, int identificacion, String direccion, int celular, String asiento, Object avion) {
+    public Registro(int id_registro, LocalDateTime fecha_compra, String nombre_pasajero, String apellido_pasajero, String tipo_identificacion, String identificacion, String direccion, int celular, int asiento, String categoria, int precio, Object avion) {
         this.id_registro = id_registro;
         this.fecha_compra = fecha_compra;
         this.nombre_pasajero = nombre_pasajero;
@@ -27,6 +30,8 @@ public class Registro {
         this.direccion = direccion;
         this.celular = celular;
         this.asiento = asiento;
+        this.categoria = categoria;
+        this.precio = precio;
         this.avion = avion;
     }
 
@@ -46,11 +51,11 @@ public class Registro {
         this.id_registro = id_registro;
     }
 
-    public LocalDate getFecha_compra() {
+    public LocalDateTime getFecha_compra() {
         return fecha_compra;
     }
 
-    public void setFecha_compra(LocalDate fecha_compra) {
+    public void setFecha_compra(LocalDateTime fecha_compra) {
         this.fecha_compra = fecha_compra;
     }
 
@@ -78,11 +83,11 @@ public class Registro {
         this.tipo_identificacion = tipo_identificacion;
     }
 
-    public int getIdentificacion() {
+    public String getIdentificacion() {
         return identificacion;
     }
 
-    public void setIdentificacion(int identificacion) {
+    public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
 
@@ -102,29 +107,45 @@ public class Registro {
         this.celular = celular;
     }
 
-    public String getAsiento() {
+    public int getAsiento() {
         return asiento;
     }
 
-    public void setAsiento(String asiento) {
+    public void setAsiento(int asiento) {
         this.asiento = asiento;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
     @Override
     public String toString() {
-
-        return
-                "Registro{" +
+        return "Registro{" +
                 "id_registro=" + id_registro +
                 ", fecha_compra=" + fecha_compra +
                 ", nombre_pasajero='" + nombre_pasajero + '\'' +
                 ", apellido_pasajero='" + apellido_pasajero + '\'' +
                 ", tipo_identificacion='" + tipo_identificacion + '\'' +
-                ", identificacion=" + identificacion +
+                ", identificacion='" + identificacion + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", celular=" + celular +
                 ", asiento='" + asiento + '\'' +
+                ", categoria='" + categoria + '\'' +
+                ", precio=" + precio +
+                ", avion=" + avion +
                 '}';
-
     }
 }
