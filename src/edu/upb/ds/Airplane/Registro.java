@@ -12,15 +12,15 @@ public class Registro {
     private String tipo_identificacion;
     private String identificacion;
     private String direccion;
-    private int celular;
+    private long celular;
     private int asiento;
     private String categoria;
-    private int precio;
+    private long precio;
     private Object avion;
 
     public Registro(){}
 
-    public Registro(int id_registro, LocalDateTime fecha_compra, String nombre_pasajero, String apellido_pasajero, String tipo_identificacion, String identificacion, String direccion, int celular, int asiento, String categoria, int precio, Object avion) {
+    public Registro(int id_registro, LocalDateTime fecha_compra, String nombre_pasajero, String apellido_pasajero, String tipo_identificacion, String identificacion, String direccion, long celular, int asiento, String categoria, long precio, Object avion) {
         this.id_registro = id_registro;
         this.fecha_compra = fecha_compra;
         this.nombre_pasajero = nombre_pasajero;
@@ -99,11 +99,11 @@ public class Registro {
         this.direccion = direccion;
     }
 
-    public int getCelular() {
+    public long getCelular() {
         return celular;
     }
 
-    public void setCelular(int celular) {
+    public void setCelular(long celular) {
         this.celular = celular;
     }
 
@@ -123,7 +123,7 @@ public class Registro {
         this.categoria = categoria;
     }
 
-    public int getPrecio() {
+    public long getPrecio() {
         return precio;
     }
 

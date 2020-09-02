@@ -47,11 +47,12 @@ public class Programa {
         b.setOrigen("Cúcuta");
         b.setDestino("Bucaramanga");
         Date hora_salida2= new Date();
-        hora_salida2.setHours(9);
+        hora_salida2.setHours(18);
         hora_salida2.setMinutes(50);
         hora_salida2.setSeconds(0);
         b.setHora_salida(hora_salida2);
         listaAviones.addEnd(b);
+        /*
         System.out.println("\n############################");
         System.out.println("\nOriginal");
         listaAviones.rec(listaAviones.head);
@@ -85,6 +86,8 @@ public class Programa {
         System.out.println("\nSize");
         System.out.println(listaAviones.size);
         System.out.println("\n############################");
+
+         */
 
 
         int contador_asiento1=0;
@@ -132,7 +135,7 @@ public class Programa {
                 Date horaVuelo= avionEscogido.getHora_salida();
                 LocalDateTime horaVuelo_dt = horaVuelo.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
                 int minutosComparar = (int) ChronoUnit.MINUTES.between(horaLocal, horaVuelo_dt);
-                System.out.println(minutosComparar);
+                //System.out.println(minutosComparar);
                 /*
                 System.out.println(horaLocal);
                 System.out.println(horaVuelo_dt);
@@ -161,15 +164,15 @@ public class Programa {
                         registroTemporal.setFecha_compra(horaLocal);
                         registroTemporal.setAvion(avionEscogido);
                         System.out.println("\nPor favor ingrese tu nombre:");
-                        String nombreTemporal = sc.nextLine();
+                        String nombreTemporal = sc.next().toString();
                         registroTemporal.setNombre_pasajero(nombreTemporal);
                         System.out.println("\nPor favor ingrese tu apellido:");
-                        String apellidoTemporal = sc.nextLine();
+                        String apellidoTemporal = sc.next().toString();
                         registroTemporal.setApellido_pasajero(apellidoTemporal);
                         System.out.println("\nQue tipo de identificacion posee?:");
                         System.out.println("\n1:Tarjeta de identidad");
                         System.out.println("\n2:Cédula de Ciudadania");
-                        System.out.println("\n2:Pasaporte");
+                        System.out.println("\n3:Pasaporte");
                         int opcionTipo = sc.nextInt();
                         String tipoidentificacionTemporal = "";
                         if (opcionTipo == 1) {
@@ -180,19 +183,19 @@ public class Programa {
                             tipoidentificacionTemporal = "PASSPORT";
                         }
                         System.out.println("\nIngrese su identificacion:");
-                        String identificacionTemporal = sc.nextLine();
+                        String identificacionTemporal = sc.next().toString();
                         registroTemporal.setTipo_identificacion(tipoidentificacionTemporal);
                         registroTemporal.setIdentificacion(identificacionTemporal);
                         System.out.println("\nIngrese su celular:");
-                        int celularTemporal = sc.nextInt();
+                        long celularTemporal = sc.nextLong();
                         registroTemporal.setCelular(celularTemporal);
                         System.out.println("\nIngrese su direccion:");
-                        String direcciontemporal=sc.nextLine();
+                        String direcciontemporal=sc.next().toString();
                         registroTemporal.setDireccion(direcciontemporal);
                         System.out.println("\nQue tipo de categoria le gustaria comprar?:");
                         System.out.println("\n1:Premium ($7.000.000)");
                         System.out.println("\n2:Ejecutivo ($300.000)");
-                        System.out.println("\n2:Económico ($120.000)");
+                        System.out.println("\n3:Económico ($120.000)");
                         int opcionCategoria=0;
                         int valorcategoriaTemporal=0;
                         String tipoCategoriaTemporal="";
@@ -212,6 +215,21 @@ public class Programa {
                         registroTemporal.setAsiento(contador_asiento1);
                         contador_asiento1++;
                         registroTemporal.setAvion(avionEscogido);
+                        boolean boolPeso=false;
+                        while(!boolPeso) {
+                            System.out.println("\nPor favor ingresar el peso de equipaje en KG:");
+                            int pesoTemporal = sc.nextInt();
+                            if (pesoTemporal > 52) {
+                                System.out.println("\n############################");
+                                System.out.println("\nLo siento pero no esta permitido llevar ");
+                                System.out.println("\nmás de 52 KG ");
+                                System.out.println("\nVuelva a intentar");
+                                System.out.println("\n############################");
+
+                            }else{
+                                boolPeso=true;
+                            }
+                        }
                         listaRegistro.add(registroTemporal);
                         System.out.println("\n############################");
                         System.out.println("\nRegistro Grabado Correctamente - Pasajero");
