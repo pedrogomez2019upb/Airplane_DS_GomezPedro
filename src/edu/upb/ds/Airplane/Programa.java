@@ -492,10 +492,12 @@ public class Programa {
                                 Object avionRegistroTemporalChequeo=registroTemporalChequeoCast.getAvion();
                                 Avion avionRegistroTemporalChequeoCast=Avion.class.cast(avionRegistroTemporalChequeo);
                                 if(avionRegistroTemporalChequeoCast.getOrigen()==origenEscogido){
-                                    registroTemporalChequeoCast.setAvion(avionEscogidoChequeo1);
+                                    registroTemporalChequeoCast.setAvion(avionEscogidoChequeo2);
                                     ListNode posicionRegistroCambiarVuelo= new ListNode(i);
                                     listaRegistro.remove(posicionRegistroCambiarVuelo);
                                     listaRegistro.add(registroTemporalChequeoCast);
+                                    ListNode posicionAvionCambiarVuelo= new ListNode(posicionAvionEscogidoChequeo1);
+                                    listaAviones.remove(posicionAvionCambiarVuelo);
                                 }
                             }
                             System.out.println("\n############################");
