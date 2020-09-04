@@ -193,29 +193,27 @@ public class List implements ListInterface{
     }
 
     @Override
-    public void remove(int position)
+    public boolean remove(ListNode node)
     {
-        ListNode aux = head;
-        for (int i = 0; i < position - 1; i++)
-        {
-            aux = aux.getNext();
+        ListNode temporalNode=head;
+        ListNode actualNode=head;
+        if(actualNode==node){
+            head=actualNode.next;
+        }else {
+            while (actualNode.next != null ) {
+                if (actualNode == node){
+                    break;
+                }
+                temporalNode = actualNode;
+                actualNode = actualNode.next;
+            }
+            tail=temporalNode;
+            tail.next= actualNode.next;
         }
-        ListNode nNext = aux.getNext();
-        aux.setNext(nNext.getNext());
         size--;
+        return true;
     }
 
-    @Override
-    public void removeTail(int position) {
-        ListNode aux = head;
-        for (int i = 0; i < position - 1; i++)
-        {
-            aux = aux.getNext();
-        }
-        ListNode nNext = aux.getNext();
-        aux.setNext(nNext.getNext());
-        size--;
-    }
 
     @Override
     public boolean contains(Object object) {

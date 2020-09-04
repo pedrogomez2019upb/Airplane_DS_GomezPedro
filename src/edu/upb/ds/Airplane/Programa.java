@@ -17,6 +17,7 @@ public class Programa {
      */
 
     public static void main(String[] args) {
+
         //###################################
         //Initial Variables
         //###################################
@@ -28,6 +29,7 @@ public class Programa {
         Scanner sc = new Scanner(System.in);
         int idAvion=0;
         int idRegistro=0;
+
         Avion a=new Avion();
         a.setId(idAvion);
         a.setPuesto(139);
@@ -52,7 +54,7 @@ public class Programa {
         hora_salida2.setSeconds(0);
         b.setHora_salida(hora_salida2);
         listaAviones.addEnd(b);
-        /*
+    /*
         System.out.println("\n############################");
         System.out.println("\nOriginal");
         listaAviones.rec(listaAviones.head);
@@ -68,7 +70,8 @@ public class Programa {
         System.out.println(listaAviones.size);
         System.out.println("\n############################");
         prueba.setId(250);
-        listaAviones.remove(1);
+        ListNode nodoAvion = new ListNode(1);
+        listaAviones.remove(nodoAvion);
         System.out.println("\n############################");
         System.out.println("\nObjeto extraido");
         listaAviones.rec(listaAviones.head);
@@ -87,12 +90,23 @@ public class Programa {
         System.out.println(listaAviones.size);
         System.out.println("\n############################");
 
-         */
-
+     */
 
         int contador_asiento1=0;
         int contador_asiento2=0;
         while (!programExit) {
+            Object avionTemporal1=listaAviones.get(0);
+            Avion avion1= Avion.class.cast(avionTemporal1);
+            int cantidadAsientosDisponibles1=avion1.getPuesto();
+            Object avionTemporal2=listaAviones.get(1);
+            Avion avion2= Avion.class.cast(avionTemporal2);
+            int cantidadAsientosDisponibles2=avion2.getPuesto();
+            /*
+            if(cantidadAsientosDisponibles1<=70){
+
+            }
+            
+             */
             int option = 0;
             //###################################
             //Creating main menu
@@ -118,7 +132,8 @@ public class Programa {
                 {
                     Object temporal = listaAviones.get(i);
                     Avion avionNuevo=Avion.class.cast(temporal);
-                    if(avionNuevo.getId()==idtemporal){
+                    if(avionNuevo.getId()==idtemporal)
+                    {
                         avionEscogido=avionNuevo;
                     }
                 }
@@ -240,6 +255,17 @@ public class Programa {
                 }
                 break;
             }else if (option==2){
+                System.out.println("\n############################");
+                System.out.println("\nPersonal Administrativo");
+                System.out.println("\n############################");
+                System.out.println("\n############################");
+                System.out.println("\nVUELOS DISPONIBLES - Personal Administrativo");
+                System.out.println("\n############################");
+                listaAviones.rec(listaAviones.head);
+                System.out.println("\n############################");
+                System.out.println("\nPASAJEROS REGISTRADOS - Personal Administrativo");
+                System.out.println("\n############################");
+                listaRegistro.rec(listaRegistro.head);
 
             }else if (option==3){
                 System.out.println("\n############################");
