@@ -2,6 +2,7 @@ package edu.upb.ds.Airplane;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class Registro {
@@ -17,10 +18,11 @@ public class Registro {
     private String categoria;
     private long precio;
     private Object avion;
+    private int peso;
 
     public Registro(){}
 
-    public Registro(int id_registro, LocalDateTime fecha_compra, String nombre_pasajero, String apellido_pasajero, String tipo_identificacion, String identificacion, String direccion, long celular, int asiento, String categoria, long precio, Object avion) {
+    public Registro(int id_registro, LocalDateTime fecha_compra, String nombre_pasajero, String apellido_pasajero, String tipo_identificacion, String identificacion, String direccion, long celular, int asiento, String categoria, long precio, Object avion, int peso) {
         this.id_registro = id_registro;
         this.fecha_compra = fecha_compra;
         this.nombre_pasajero = nombre_pasajero;
@@ -33,6 +35,7 @@ public class Registro {
         this.categoria = categoria;
         this.precio = precio;
         this.avion = avion;
+        this.peso = peso;
     }
 
     public Object getAvion() {
@@ -127,8 +130,16 @@ public class Registro {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(long precio) {
         this.precio = precio;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
     }
 
     @Override
@@ -139,13 +150,15 @@ public class Registro {
                 ", nombre_pasajero='" + nombre_pasajero + '\'' +
                 ", apellido_pasajero='" + apellido_pasajero + '\'' +
                 ", tipo_identificacion='" + tipo_identificacion + '\'' +
+                ", peso=" + peso + '\'' +
                 ", identificacion='" + identificacion + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", celular=" + celular +
-                ", asiento='" + asiento + '\'' +
+                ", asiento=" + asiento +
                 ", categoria='" + categoria + '\'' +
                 ", precio=" + precio +
                 ", avion=" + avion +
                 '}';
     }
+
 }

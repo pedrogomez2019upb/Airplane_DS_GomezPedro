@@ -1,7 +1,5 @@
 package edu.upb.ds.Airplane;
 
-import java.sql.SQLOutput;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
@@ -9,12 +7,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Programa {
-    /*
-    public LocalDateTime convertToLocalDateTimeViaInstant(Date dateToConvert) {
-        return dateToConvert.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-    }
 
-     */
 
     public static void main(String[] args) {
 
@@ -105,8 +98,7 @@ public class Programa {
             if(cantidadAsientosDisponibles1<=70){
 
             }
-            
-             */
+            */
             int option = 0;
             //###################################
             //Creating main menu
@@ -128,6 +120,7 @@ public class Programa {
                 int idtemporal=sc.nextInt();
                 int tamanoListaAviones= listaAviones.getSize();
                 Avion avionEscogido=new Avion();
+                int posicionAvionEscogido=0;
                 for(int i=0;i<tamanoListaAviones;i++)
                 {
                     Object temporal = listaAviones.get(i);
@@ -135,6 +128,7 @@ public class Programa {
                     if(avionNuevo.getId()==idtemporal)
                     {
                         avionEscogido=avionNuevo;
+                        posicionAvionEscogido=i;
                     }
                 }
                 System.out.println("\n############################");
@@ -227,8 +221,8 @@ public class Programa {
                         }
                         registroTemporal.setCategoria(tipoCategoriaTemporal);
                         registroTemporal.setPrecio(valorcategoriaTemporal);
-                        registroTemporal.setAsiento(contador_asiento1);
                         contador_asiento1++;
+                        registroTemporal.setAsiento(contador_asiento1);
                         registroTemporal.setAvion(avionEscogido);
                         boolean boolPeso=false;
                         while(!boolPeso) {
@@ -241,19 +235,30 @@ public class Programa {
                                 System.out.println("\nVuelva a intentar");
                                 System.out.println("\n############################");
 
-                            }else{
+                            }else
+                                {
+                                    registroTemporal.setPeso(pesoTemporal);
                                 boolPeso=true;
-                            }
+                                }
                         }
+                        int asientosDisponibles=avionEscogido.getPuesto();
+                        asientosDisponibles--;
+                        avionEscogido.setPuesto(asientosDisponibles);
+                        ListNode nodoAvionEscogido = new ListNode(posicionAvionEscogido);
+                        listaAviones.remove(nodoAvionEscogido);
+                        listaAviones.add(avionEscogido);
                         listaRegistro.add(registroTemporal);
                         System.out.println("\n############################");
                         System.out.println("\nRegistro Grabado Correctamente - Pasajero");
                         System.out.println("\n############################");
                         System.out.println(registroTemporal);
-
+                        System.out.println("\n############################");
+                        System.out.println("\nDEVOLVIENDO A MENÚ PRINCIPAL");
+                        System.out.println("\n############################");
+                        continue;
                     }
                 }
-                break;
+
             }else if (option==2){
                 System.out.println("\n############################");
                 System.out.println("\nPersonal Administrativo");
@@ -266,12 +271,168 @@ public class Programa {
                 System.out.println("\nPASAJEROS REGISTRADOS - Personal Administrativo");
                 System.out.println("\n############################");
                 listaRegistro.rec(listaRegistro.head);
+                System.out.println("\nQuieres editar algun pasajero?");
+                System.out.println("\n1:Si");
+                System.out.println("\n2:No");
+                int opcionPasajero=sc.nextInt();
+                if (opcionPasajero==1){
+                    System.out.println("\nComo es la identificacion del registro?");
+                    int idtemporal=sc.nextInt();
+                    int tamanoListaRegistro= listaRegistro.getSize();
+                    Registro registroEscogido=new Registro();
+                    int posicionRegistroEscogido=0;
+                    for(int i=0;i<tamanoListaRegistro;i++)
+                    {
+                        Object temporal = listaRegistro.get(i);
+                        Registro registroNuevo=Registro.class.cast(temporal);
+                        if(registroNuevo.getId_registro()==idtemporal)
+                        {
+                            registroEscogido=registroNuevo;
+                            posicionRegistroEscogido=i;
+                        }
+                    }
+                    System.out.println("\n############################");
+                    System.out.println("\nRegistro Escogido");
+                    System.out.println("\n############################");
+                    System.out.println(registroEscogido);
+                    boolean booleanoCambioPasajero=false;
+                    while(!booleanoCambioPasajero){
+                        System.out.println("\nQue te gustaria modificar del pasajero?");
+                        System.out.println("\n1:Nombre");
+                        System.out.println("\n2:Apellido");
+                        System.out.println("\n3:Fecha Compra");
+                        System.out.println("\n4:Tipo Identificacion");
+                        System.out.println("\n5:Identificacion");
+                        System.out.println("\n6:Peso Equipaje");
+                        System.out.println("\n7:Direccion");
+                        System.out.println("\n8:Celular");
+                        System.out.println("\n9:Categoria");
+                        System.out.println("\n10:Avion");
+                        int opcionDatoModificar=sc.nextInt();
+                        if(opcionDatoModificar==1){
+                            System.out.println("\nPor favor ingresa el nombre nuevo:");
+                            String nombreNuevo=sc.next().toString();
+                            registroEscogido.setNombre_pasajero(nombreNuevo);
+                        } else if (opcionDatoModificar==2){
+                            System.out.println("\nPor favor ingresa el apellido nuevo:");
+                            String apellidoNuevo=sc.next().toString();
+                            registroEscogido.setApellido_pasajero(apellidoNuevo);
+                        }else if (opcionDatoModificar==3){
+                            Date nuevoDia = new Date();
+                            System.out.println("\nPor favor ingresa la hora (FORMATO 24H):");
+                            int horaTemporalRegistro=sc.nextInt();
+                            System.out.println("\nPor favor ingresa los minutos:");
+                            int minutosTemporalRegistro=sc.nextInt();
+                            System.out.println("\nPor favor ingresa los segundos:");
+                            int segundosTemporalRegistro=sc.nextInt();
+                            nuevoDia.setHours(horaTemporalRegistro);
+                            nuevoDia.setMinutes(minutosTemporalRegistro);
+                            nuevoDia.setSeconds(segundosTemporalRegistro);
+                            LocalDateTime nuevoDiaLocal=nuevoDia.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();;
+                            registroEscogido.setFecha_compra(nuevoDiaLocal);
+                        }
+                        else if (opcionDatoModificar==4){
+                            System.out.println("\nPor favor ingresa el tipo de identificacion nuevo:");
+                            String tipoIDNuevo=sc.next().toString();
+                            registroEscogido.setTipo_identificacion(tipoIDNuevo);
+                        }
+                        else if (opcionDatoModificar==5){
+                            System.out.println("\nPor favor ingresa la identificacion nuevo:");
+                            String identificacionNuevo=sc.next().toString();
+                            registroEscogido.setIdentificacion(identificacionNuevo);
+                        }
+                        else if (opcionDatoModificar==6){
+                            System.out.println("\nPor favor ingresa el peso nuevo:");
+                            int pesoNuevoRegistro=sc.nextInt();
+                            registroEscogido.setPeso(pesoNuevoRegistro);
+                        }
+                        else if (opcionDatoModificar==7){
+                            System.out.println("\nPor favor ingresa la direccion nueva:");
+                            String direcionNuevoRegistro=sc.next().toString();
+                            registroEscogido.setDireccion(direcionNuevoRegistro);
+                        }
+                        else if (opcionDatoModificar==8){
+                            System.out.println("\nPor favor ingresa el celular nuevo:");
+                            long celularNuevoRegistro=sc.nextLong();
+                            registroEscogido.setCelular(celularNuevoRegistro);
+                        }
+                        else if (opcionDatoModificar==9){
+                            System.out.println("\nA que categoria vas a cambiar?:");
+                            System.out.println("\n1:Premium ($7.000.000)");
+                            System.out.println("\n2:Ejecutivo ($300.000)");
+                            System.out.println("\n3:Económico ($120.000)");
+                            int opcionCategoria=0;
+                            int valorcategoriaTemporal=0;
+                            String tipoCategoriaTemporal="";
+                            opcionCategoria=sc.nextInt();
+                            if (opcionCategoria==1){
+                                valorcategoriaTemporal=7000000;
+                                tipoCategoriaTemporal="Premium";
+                            }else if(opcionCategoria==2){
+                                valorcategoriaTemporal=300000;
+                                tipoCategoriaTemporal="Ejecutivo";
+                            }else if(opcionCategoria==3){
+                                valorcategoriaTemporal=120000;
+                                tipoCategoriaTemporal="Económico";
+                            }
+                            registroEscogido.setCategoria(tipoCategoriaTemporal);
+                            registroEscogido.setPrecio(valorcategoriaTemporal);
+                        }
+                        else if (opcionDatoModificar==10){
+                            System.out.println("\n############################");
+                            System.out.println("\nVUELOS DISPONIBLES - ADMIN");
+                            System.out.println("\n############################");
+                            listaAviones.rec(listaAviones.head);
+                            System.out.println("\nQue vuelo te gustaria tomar? (Ingresar ID de vuelo)");
+                            int idtemporalAvionCambiar=sc.nextInt();
+                            int tamanoListaAvionesCambiar= listaAviones.getSize();
+                            Avion avionEscogidoCambiar=new Avion();
+                            int posicionAvionEscogido=0;
+                            for(int i=0;i<tamanoListaAvionesCambiar;i++)
+                            {
+                                Object temporal = listaAviones.get(i);
+                                Avion avionNuevo=Avion.class.cast(temporal);
+                                if(avionNuevo.getId()==idtemporalAvionCambiar)
+                                {
+                                    avionEscogidoCambiar=avionNuevo;
+                                    posicionAvionEscogido=i;
+                                }
+                            }
+                            registroEscogido.setAvion(avionEscogidoCambiar);
+                        }
+                        System.out.println("\n############################");
+                        System.out.println("\nREGISTRO NUEVO - ADMIN");
+                        System.out.println("\n############################");
+                        System.out.println(registroEscogido);
+                        System.out.println("\nQuieres cambiar otro dato del registro?");
+                        System.out.println("\n1:Si");
+                        System.out.println("\n2:No");
+                        int opcionBucle = sc.nextInt();
+                        if (opcionBucle==1){
+                            continue;
+                        }
+                        else if(opcionBucle==2){
+                            booleanoCambioPasajero=true;
+                        }
+                    }
+
+                } else if(opcionPasajero==2){
+                    System.out.println("\n############################");
+                    System.out.println("\nDEVOLVIENDO A MENÚ PRINCIPAL");
+                    System.out.println("\n############################");
+                }
 
             }else if (option==3){
                 System.out.println("\n############################");
                 System.out.println("\nGracias por visitar la Aerolinea AV-UPB");
                 System.out.println("\n############################");
                 programExit=true;
+            }
+            else{
+                System.out.println("\n############################");
+                System.out.println("\nLo siento , por favor vuelve a escoger");
+                System.out.println("\nuna opcion correcta.");
+                System.out.println("\n############################");
             }
         }
     }
