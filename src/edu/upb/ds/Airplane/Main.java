@@ -7,7 +7,11 @@ import java.time.ZoneId;
 public class Main {
 
     public static void main(String[] args) {
+        //ZONA DE PRUEBAS , PARA FUNCIONAMIENTO DE PROGRAMA.
+        //POR FAVOR , IR A CLASE "PROGRAMA" PARA VER SU
+        //FUNCIONAMIENTO CORRECTO.
 
+/*
         List list1=new List();
         Avion a=new Avion();
         a.setId(123456789);
@@ -35,7 +39,7 @@ public class Main {
             System.out.println(node.toString());
         }
         System.out.println("##########");
-        /*
+
         for(int i=0;i<10;i++){
             list1.add(i);
         }
@@ -48,6 +52,43 @@ public class Main {
         System.out.println("\n"+list1.getHead());
         System.out.println("\n###################");
 
+         */
+
+        /*
+                System.out.println("\n############################");
+        System.out.println("\nOriginal");
+        listaAviones.rec(listaAviones.head);
+        System.out.println("\nSize");
+        System.out.println(listaAviones.size);
+        System.out.println("\n############################");
+        Object avionTemporal=listaAviones.get(1);
+        Avion prueba= Avion.class.cast(avionTemporal);
+        System.out.println("\n############################");
+        System.out.println("\nObjecto encontrado");
+        System.out.println(prueba);
+        System.out.println("\nSize");
+        System.out.println(listaAviones.size);
+        System.out.println("\n############################");
+        prueba.setId(250);
+        ListNode nodoAvion = new ListNode(1);
+        listaAviones.remove(nodoAvion);
+        System.out.println("\n############################");
+        System.out.println("\nObjeto extraido");
+        listaAviones.rec(listaAviones.head);
+        System.out.println("\nSize");
+        System.out.println(listaAviones.size);
+        System.out.println("\nNuevo objeto");
+        System.out.println(prueba);
+        System.out.println("\nSize");
+        System.out.println(listaAviones.size);
+        System.out.println("\n############################");
+        listaAviones.addEnd(prueba);
+        System.out.println("\n############################");
+        System.out.println("\nLista final");
+        listaAviones.rec(listaAviones.head);
+        System.out.println("\nSize");
+        System.out.println(listaAviones.size);
+        System.out.println("\n############################");
          */
     }
 }

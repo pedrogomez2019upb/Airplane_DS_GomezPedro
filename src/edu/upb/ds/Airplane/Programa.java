@@ -74,41 +74,10 @@ public class Programa {
         d.setHora_salida(hora_salida4);
         listaAviones.addEnd(d);
         idAvion++;
+
+
     /*
-        System.out.println("\n############################");
-        System.out.println("\nOriginal");
-        listaAviones.rec(listaAviones.head);
-        System.out.println("\nSize");
-        System.out.println(listaAviones.size);
-        System.out.println("\n############################");
-        Object avionTemporal=listaAviones.get(1);
-        Avion prueba= Avion.class.cast(avionTemporal);
-        System.out.println("\n############################");
-        System.out.println("\nObjecto encontrado");
-        System.out.println(prueba);
-        System.out.println("\nSize");
-        System.out.println(listaAviones.size);
-        System.out.println("\n############################");
-        prueba.setId(250);
-        ListNode nodoAvion = new ListNode(1);
-        listaAviones.remove(nodoAvion);
-        System.out.println("\n############################");
-        System.out.println("\nObjeto extraido");
-        listaAviones.rec(listaAviones.head);
-        System.out.println("\nSize");
-        System.out.println(listaAviones.size);
-        System.out.println("\nNuevo objeto");
-        System.out.println(prueba);
-        System.out.println("\nSize");
-        System.out.println(listaAviones.size);
-        System.out.println("\n############################");
-        listaAviones.addEnd(prueba);
-        System.out.println("\n############################");
-        System.out.println("\nLista final");
-        listaAviones.rec(listaAviones.head);
-        System.out.println("\nSize");
-        System.out.println(listaAviones.size);
-        System.out.println("\n############################");
+
 
      */
 
