@@ -115,17 +115,6 @@ public class Programa {
         int contador_asiento1=0;
         int contador_asiento2=0;
         while (!programExit) {
-            Object avionTemporal1=listaAviones.get(0);
-            Avion avion1= Avion.class.cast(avionTemporal1);
-            int cantidadAsientosDisponibles1=avion1.getPuesto();
-            Object avionTemporal2=listaAviones.get(1);
-            Avion avion2= Avion.class.cast(avionTemporal2);
-            int cantidadAsientosDisponibles2=avion2.getPuesto();
-            /*
-            if(cantidadAsientosDisponibles1<=70){
-
-            }
-            */
             int option = 0;
             //###################################
             //Creating main menu
@@ -467,9 +456,39 @@ public class Programa {
                     }
 
                 } else if(opcionPasajero==2){
-                    System.out.println("\n############################");
-                    System.out.println("\nDEVOLVIENDO A MENÚ PRINCIPAL");
-                    System.out.println("\n############################");
+                    System.out.println("\nQuieres chequear si es necesario hacer cambio de vuelos?");
+                    System.out.println("\n1:Si");
+                    System.out.println("\n2:No");
+                    int opcionUltimaCambio=sc.nextInt();
+                    if (opcionUltimaCambio==1){
+                        int tamanoListaAvionesChequeo1= listaAviones.getSize();
+                        Avion avionEscogidoChequeo1=new Avion();
+                        Avion avionEscogidoChequeo2=new Avion();
+                        int posicionAvionEscogidoChequeo1=0;
+                        int posicionAvionEscogidoChequeo2=0;
+                        for(int i=0;i<tamanoListaAvionesChequeo1;i++)
+                        {
+                            Object temporal = listaAviones.get(i);
+                            Avion avionNuevo=Avion.class.cast(temporal);
+                            for(int q=1;q<tamanoListaAvionesChequeo1;q++){
+                                Object temporal2 = listaAviones.get(q);
+                                Avion avionNuevo2=Avion.class.cast(temporal);
+                                if(avionNuevo.getOrigen()==avionNuevo2.getOrigen())
+                                {
+                                    avionNuevo=avionEscogidoChequeo1;
+                                    avionNuevo2=avionEscogidoChequeo2;
+                                    posicionAvionEscogidoChequeo1=i;
+                                    posicionAvionEscogidoChequeo2=q;
+                                }
+                            }
+                        }
+                        
+                    }
+                    else if(opcionUltimaCambio==2){
+                        System.out.println("\n############################");
+                        System.out.println("\nDEVOLVIENDO A MENÚ PRINCIPAL");
+                        System.out.println("\n############################");
+                    }
                 }
             }else if (option==3){
                 System.out.println("\n############################");
