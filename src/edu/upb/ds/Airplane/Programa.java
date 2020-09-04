@@ -20,8 +20,8 @@ public class Programa {
         List listaAviones = new List();
         List listaRegistro = new List();
         Scanner sc = new Scanner(System.in);
-        int idAvion=0;
-        int idRegistro=0;
+        int idAvion=1;
+        int idRegistro=1;
 
         Avion a=new Avion();
         a.setId(idAvion);
@@ -47,6 +47,33 @@ public class Programa {
         hora_salida2.setSeconds(0);
         b.setHora_salida(hora_salida2);
         listaAviones.addEnd(b);
+        idAvion++;
+
+        Avion c=new Avion();
+        c.setId(idAvion);
+        c.setPuesto(139);
+        c.setOrigen("Cúcuta");
+        c.setDestino("Bucaramanga");
+        Date hora_salida3= new Date();
+        hora_salida3.setHours(20);
+        hora_salida3.setMinutes(0);
+        hora_salida3.setSeconds(0);
+        c.setHora_salida(hora_salida3);
+        listaAviones.addEnd(c);
+        idAvion++;
+
+        Avion d=new Avion();
+        d.setId(idAvion);
+        d.setPuesto(139);
+        d.setOrigen("Bucaramanga");
+        d.setDestino("Cúcuta");
+        Date hora_salida4= new Date();
+        hora_salida4.setHours(8);
+        hora_salida4.setMinutes(0);
+        hora_salida4.setSeconds(0);
+        d.setHora_salida(hora_salida4);
+        listaAviones.addEnd(d);
+        idAvion++;
     /*
         System.out.println("\n############################");
         System.out.println("\nOriginal");
@@ -170,6 +197,7 @@ public class Programa {
                         System.out.println("\nNuevo Registro - Pasajero");
                         System.out.println("\n############################");
                         registroTemporal.setId_registro(idRegistro);
+                        idRegistro++;
                         registroTemporal.setFecha_compra(horaLocal);
                         registroTemporal.setAvion(avionEscogido);
                         System.out.println("\nPor favor ingrese tu nombre:");
