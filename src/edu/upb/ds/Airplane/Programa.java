@@ -342,9 +342,24 @@ public class Programa {
                             registroEscogido.setIdentificacion(identificacionNuevo);
                         }
                         else if (opcionDatoModificar==6){
-                            System.out.println("\nPor favor ingresa el peso nuevo:");
-                            int pesoNuevoRegistro=sc.nextInt();
-                            registroEscogido.setPeso(pesoNuevoRegistro);
+                            boolean boolPesoRegistro=false;
+                            while(!boolPesoRegistro) {
+                                System.out.println("\nPor favor ingresar el nuevo peso de equipaje en KG:");
+                                int pesoTemporal = sc.nextInt();
+                                if (pesoTemporal > 52) {
+                                    System.out.println("\n############################");
+                                    System.out.println("\nLo siento pero no esta permitido llevar ");
+                                    System.out.println("\nmás de 52 KG ");
+                                    System.out.println("\nVuelva a intentar");
+                                    System.out.println("\n############################");
+
+                                }else
+                                {
+                                    registroEscogido.setPeso(pesoTemporal);
+                                    boolPesoRegistro=true;
+                                }
+                            }
+
                         }
                         else if (opcionDatoModificar==7){
                             System.out.println("\nPor favor ingresa la direccion nueva:");
@@ -412,7 +427,14 @@ public class Programa {
                             continue;
                         }
                         else if(opcionBucle==2){
+                            ListNode nodoRemoverRegistro= new ListNode(posicionRegistroEscogido);
+                            listaRegistro.remove(nodoRemoverRegistro);
                             booleanoCambioPasajero=true;
+                            System.out.println("\nCambiado satisfactoriamente!");
+                            System.out.println("\n############################");
+                            System.out.println("\nNUEVA LISTA REGISTRO");
+                            System.out.println("\n############################");
+                            listaRegistro.rec(listaRegistro.head);
                         }
                     }
 
@@ -421,7 +443,6 @@ public class Programa {
                     System.out.println("\nDEVOLVIENDO A MENÚ PRINCIPAL");
                     System.out.println("\n############################");
                 }
-
             }else if (option==3){
                 System.out.println("\n############################");
                 System.out.println("\nGracias por visitar la Aerolinea AV-UPB");
