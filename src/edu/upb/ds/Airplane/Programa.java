@@ -68,8 +68,8 @@ public class Programa {
         d.setOrigen("Bucaramanga");
         d.setDestino("Cúcuta");
         Date hora_salida4= new Date();
-        hora_salida4.setHours(8);
-        hora_salida4.setMinutes(0);
+        hora_salida4.setHours(22);
+        hora_salida4.setMinutes(15);
         hora_salida4.setSeconds(0);
         d.setHora_salida(hora_salida4);
         listaAviones.addEnd(d);
@@ -446,6 +446,7 @@ public class Programa {
                         else if(opcionBucle==2){
                             ListNode nodoRemoverRegistro= new ListNode(posicionRegistroEscogido);
                             listaRegistro.remove(nodoRemoverRegistro);
+                            listaRegistro.add(registroEscogido);
                             booleanoCambioPasajero=true;
                             System.out.println("\nCambiado satisfactoriamente!");
                             System.out.println("\n############################");
