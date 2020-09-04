@@ -482,7 +482,29 @@ public class Programa {
                                 }
                             }
                         }
-                        
+                        if(avionEscogidoChequeo1.getPuesto()==70 && avionEscogidoChequeo2.getPuesto()==70){
+                            String origenEscogido=avionEscogidoChequeo1.getOrigen();
+                            int tamanoRegistrosChequeo=listaRegistro.getSize();
+                            for(int i=0;i<tamanoRegistrosChequeo;i++){
+                                Object registroTemporalChequeo= listaRegistro.get(i);
+                                Registro registroTemporalChequeoCast=Registro.class.cast(registroTemporalChequeo);
+                                Object avionRegistroTemporalChequeo=registroTemporalChequeoCast.getAvion();
+                                Avion avionRegistroTemporalChequeoCast=Avion.class.cast(avionRegistroTemporalChequeo);
+                                if(avionRegistroTemporalChequeoCast.getOrigen()==origenEscogido){
+                                    registroTemporalChequeoCast.setAvion(avionEscogidoChequeo1);
+                                    ListNode posicionRegistroCambiarVuelo= new ListNode(i);
+                                    listaRegistro.remove(posicionRegistroCambiarVuelo);
+                                    listaRegistro.add(registroTemporalChequeoCast);
+                                }
+                            }
+                            System.out.println("\n############################");
+                            System.out.println("\nNUEVA LISTA REGISTROS");
+                            System.out.println("\n############################");
+                            listaRegistro.rec(listaRegistro.head);
+                        }
+                        System.out.println("\n############################");
+                        System.out.println("\nNo ha tocado modificar ningun vuelo");
+                        System.out.println("\n############################");
                     }
                     else if(opcionUltimaCambio==2){
                         System.out.println("\n############################");
