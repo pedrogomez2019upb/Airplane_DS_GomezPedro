@@ -120,6 +120,7 @@ public class Programa {
                 System.out.println("\nVUELOS ESCOGIDO - Pasajero");
                 System.out.println("\n############################");
                 System.out.println(avionEscogido);
+
                 LocalDateTime horaLocal = LocalDateTime.now();
                 //Date horaLocal_date=Date.from(horaLocal.atZone(ZoneId.systemDefault()).toInstant());
                 int hours  = horaLocal.getHour();
@@ -469,6 +470,7 @@ public class Programa {
                                     listaAviones.remove(posicionAvionCambiarVuelo);
                                 }
                             }
+
                             System.out.println("\n############################");
                             System.out.println("\nNUEVA LISTA REGISTROS");
                             System.out.println("\n############################");
